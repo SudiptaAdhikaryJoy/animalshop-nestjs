@@ -4,13 +4,15 @@ import { initDatabase } from './database.config';
 
 @Global()
 @Module({
-    imports: [ConfigModule.forRoot()],
-    providers: [{
-        provide: 'DRIZZLE_DB',
-        useFactory: async () => {
-            return await initDatabase();
-        },
-    }],
-    exports: ['DRIZZLE_DB'],
+  imports: [ConfigModule.forRoot()],
+  providers: [
+    {
+      provide: 'DRIZZLE_DB',
+      useFactory: async () => {
+        return await initDatabase();
+      },
+    },
+  ],
+  exports: ['DRIZZLE_DB'],
 })
-export class DatabaseModule { }
+export class DatabaseModule {}
